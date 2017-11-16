@@ -1,5 +1,8 @@
 body{
 	font-family: helvetica;
+	background-color: #EFEFEF;
+	font-family: 'VT323', monospace;
+	font-family: 'Space Mono', monospace;
 }
 
 #header{
@@ -9,15 +12,19 @@ body{
 
 .column {
     float: left;
-    width: 33.33%;
+    width: 33%;
     text-align: center;
 }
 
 .column p{
 	 vertical-align: middle;
 	 font-size: 18px;
-	 color:#F5F5F5;
+	 color:white;
+/*	 #F5F5F5
+*/}
 
+.column p:hover{
+	cursor: pointer;	
 }
 
 /* Clear floats after the columns */
@@ -32,4 +39,13 @@ body{
     .column {
         width: 100%;
     }
+}
+
+#image{
+	margin-top: 100px;
+	width:100%;
+}
+
+#col1{
+	border: 2px solid black;
 }
