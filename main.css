@@ -26,7 +26,7 @@ body{
 /*	 #F5F5F5
 */}
 
-.column p:hover{
+#col2 p:hover{
 	cursor: pointer;
 
 }
