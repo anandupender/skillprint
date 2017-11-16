@@ -1,0 +1,35 @@
+body{
+	font-family: helvetica;
+}
+
+#header{
+	margin: 50px;
+	text-align: center;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+.column p{
+	 vertical-align: middle;
+	 font-size: 18px;
+	 color:#F5F5F5;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    height:100%;
+}
+
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
