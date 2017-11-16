@@ -46,8 +46,10 @@ function colFiller(array, string){
 	    var newElement = document.createElement('p');
 	    newElement.id = array[s]; 
 	    newElement.innerHTML = array[s];
-		newElement.addEventListener("mouseover", mouseOver, false);
-		newElement.addEventListener("mouseout", mouseOut, false);
+	    if(string == "col1"){
+			newElement.addEventListener("mouseover", mouseOver, false);
+			newElement.addEventListener("mouseout", mouseOut, false);
+		}
 	    col.appendChild(newElement);
 	}
 }

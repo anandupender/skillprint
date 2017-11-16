@@ -12,7 +12,9 @@ body{
 
 .column {
     float: left;
-    width: 33%;
+    width: 27%;
+    margin: 3%;
+    margin-top:0px; 
     text-align: center;
 }
 
@@ -20,11 +22,13 @@ body{
 	 vertical-align: middle;
 	 font-size: 18px;
 	 color:white;
+
 /*	 #F5F5F5
 */}
 
 .column p:hover{
-	cursor: pointer;	
+	cursor: pointer;
+
 }
 
 /* Clear floats after the columns */
@@ -47,5 +51,14 @@ body{
 }
 
 #col1{
-	border: 2px solid black;
+	border-style: solid;
+	animation: colors 7s ease-in-out infinite;
 }
+
+@keyframes colors {
+    0% {border-color: black;}  
+    50% {border-color: white;}  
+    100% {border-color: black;}  
+
+}
+
