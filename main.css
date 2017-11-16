@@ -5,8 +5,13 @@ body{
 	font-family: 'Space Mono', monospace;
 }
 
+h1{
+    font-family: 'Rock Salt', cursive;
+    font-size: 42px;
+}
+
 #header{
-	margin: 50px;
+	margin: 30px;
 	text-align: center;
 }
 
@@ -62,7 +67,7 @@ body{
 #imageContainer{
     position: fixed;
     bottom: 5px;
-    right: 5px;
+    right: 10px;
 }
 
 
@@ -77,8 +82,8 @@ img {
 
  }
 img#createdImage {
-    -webkit-animation: fade 2s;
-    animation: fade 2s;
+    -webkit-animation: fade 1s;
+    animation: fade 1s;
     opacity: 1;
     width:250px;
 
