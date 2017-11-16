@@ -35,8 +35,8 @@ projectMap.set("Meta", 'Unity,ChucK,C & C++ & Python,CCRMA'.split(','));
 
 
 function fillCols(){
-	colFiller(skills, "col2");
-	colFiller(projects, "col1");
+	colFiller(skills, "col1");
+	colFiller(projects, "col2");
 	colFiller(groups, "col3");
 }
 
@@ -46,7 +46,7 @@ function colFiller(array, string){
 	    var newElement = document.createElement('p');
 	    newElement.id = array[s]; 
 	    newElement.innerHTML = array[s];
-	    if(string == "col1"){
+	    if(string == "col2"){
 			newElement.addEventListener("mouseover", mouseOver, false);
 			newElement.addEventListener("mouseout", mouseOut, false);
 		}
@@ -54,16 +54,17 @@ function colFiller(array, string){
 	}
 }
 
+var currentImageLocation = "";
 
 function mouseOver(){
+
 	this.style.color = "black";
-	// this.style.textShadow= "0 0 4px black";
 
 	console.log(this.parentElement);
-	if(this.parentElement.id == "col2"){
+	if(this.parentElement.id == "col1"){
 		var toHighlight = skillMap.get(this.id);
 	}
-	else if(this.parentElement.id == "col1"){
+	else if(this.parentElement.id == "col2"){
 		var toHighlight = projectMap.get(this.id);
 	}
 
@@ -73,21 +74,41 @@ function mouseOver(){
 	    var toChange = document.getElementById(toHighlight[newElementId]);
 	    console.log(toChange);
 	    toChange.style.color = "black"
-	    // toChange.style.textShadow= "0 0 10px #00F38C";
-
 	}
-	
+	var newImage = document.createElement('img');
+	newImage.setAttribute("src", "images/"+this.id+".jpg");
+
+	//take care of first image input
+	if(currentImageLocation == ""){
+		this.parentNode.insertBefore(newImage, this.nextSibling);
+		currentImageLocation = this.id;
+	}
+
+	if(currentImageLocation != this.id){
+		//delete last image
+		var imageToRemove = document.getElementById("createdImage");
+		if(imageToRemove.className != this.id){
+			console.log("am deleting it!", this.id);
+			imageToRemove.parentNode.removeChild(imageToRemove);
+		}
+		//insert new image
+		this.parentNode.insertBefore(newImage, this.nextSibling);
+		currentImageLocation = this.id;
+	}
+	newImage.id = "createdImage";
+	newImage.className = this.id;
+
 }
 
 function mouseOut(){
 	this.style.color = "white";
 	this.style.textShadow= "none";
 
-	if(this.parentElement.id == "col2"){
+	if(this.parentElement.id == "col1"){
 		var toHighlight = skillMap.get(this.id);
 		console.log(toHighlight);
 	}
-	else if(this.parentElement.id == "col1"){
+	else if(this.parentElement.id == "col2"){
 		var toHighlight = projectMap.get(this.id);
 	}
 	for (var newElementId in toHighlight) {
@@ -96,7 +117,8 @@ function mouseOut(){
 	    console.log(toChange);
 	    toChange.style.color = "white"
 		toChange.style.textShadow= "none";
-
 	}
+	// var imageToRemove = document.getElementById("createdImage");
+	// imageToRemove.parentNode.removeChild(imageToRemove);
 }
 
