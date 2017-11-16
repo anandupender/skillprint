@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var skills = 'Ethnographic Research,Storytelling,Lathe & Mill,Lasercutting & 3D Printing,C & C++ & Python,HTML5 & CSS3 & JS,ChucK,Arduino,Unity,Sketch,AI,Team Lead'.split(',');
 var projects = 'malt,Chess.,Brand Book,100k Challenge App,Piqo Wallets,Stanford LED Fountain,TEDxChurchillHighSchool,Lumy,stanFORD Mobility Project,Meta'.split(',');
-var groups = 'ME,IDEO CoLab,Cinder,StreetSense,Ford Innovation Center,Stanford d.school,Stanford,Stanford Robotics Club,BASES,TEDx,CCRMA'.split(',');
+var groups = 'IDEO CoLab,Ford Innovation Center,Stanford d.school,Stanford,Stanford Robotics Club,BASES,TEDx,CCRMA'.split(',');
 
 var skillMap = new Map(); // or var map = {};
 skillMap.set("Ethnographic Research", 'stanFORD Mobility Project,Ford Innovation Center,IDEO CoLab,Stanford d.school'.split(','));
@@ -45,6 +45,8 @@ function colFiller(array, string){
 	    newElement.innerHTML = array[s];
 	    if(string == "col2"){
 			newElement.addEventListener("mouseover", mouseOver, false);
+			newElement.addEventListener("click", onClick, false);
+
 			newElement.addEventListener("mouseout", mouseOut, false);
 		}
 	    col.appendChild(newElement);
@@ -72,28 +74,6 @@ function mouseOver(){
 	    console.log(toChange);
 	    toChange.style.color = "black"
 	}
-	var newImage = document.createElement('img');
-	newImage.setAttribute("src", "images/"+this.id+".jpg");
-
-	//take care of first image input
-	if(currentId == ""){
-		this.parentNode.insertBefore(newImage, this.nextSibling);
-		currentId = this.id;
-	}
-
-	if(currentId != this.id){
-		//delete last image
-		var imageToRemove = document.getElementById("createdImage");
-		if(imageToRemove.className != this.id){
-			console.log("am deleting it!", this.id);
-			imageToRemove.parentNode.removeChild(imageToRemove);
-		}
-		//insert new image
-		this.parentNode.insertBefore(newImage, this.nextSibling);
-		currentId = this.id;
-	}
-	newImage.id = "createdImage";
-	newImage.className = this.id;
 
 }
 
@@ -116,5 +96,34 @@ function mouseOut(){
 	}
 	// var imageToRemove = document.getElementById("createdImage");
 	// imageToRemove.parentNode.removeChild(imageToRemove);
+}
+
+function onClick(){
+	var newImage = document.createElement('img');
+	newImage.setAttribute("src", "images/"+this.id+".jpg");
+
+	//take care of first image input
+	if(currentId == ""){
+		document.getElementById("imageContainer").appendChild(newImage);
+		//this.parentNode.insertBefore(newImage, this.nextSibling);
+		currentId = this.id;
+	}
+
+	if(currentId != this.id){
+		//delete last image
+		var imageToRemove = document.getElementById("createdImage");
+		if(imageToRemove.className != this.id){
+			console.log("am deleting it!", this.id);
+			imageToRemove.parentNode.removeChild(imageToRemove);
+		}
+		//insert new image
+		// this.parentNode.insertBefore(newImage, this.nextSibling);
+		document.getElementById("imageContainer").appendChild(newImage);
+
+		currentId = this.id;
+	}
+	newImage.id = "createdImage";
+	newImage.className = this.id;
+
 }
 
