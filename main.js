@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var skills = 'Ethnographic Research,Storytelling,Lathe & Mill,Lasercutting & 3D Printing,C & C++ & Python,HTML5 & CSS3 & JS,ChucK,Arduino,Unity,Sketch,AI,Team Lead'.split(',');
-var projects = 'MALT,Chess.,Brand Book,100k Challenge App,Piqo Wallets,Stanford LED Fountain,TEDxChurchillHighSchool,Lumy,Diskus,stanFORD Mobility Project,Meta'.split(',');
+var projects = 'malt,Chess.,Brand Book,100k Challenge App,Piqo Wallets,Stanford LED Fountain,TEDxChurchillHighSchool,Lumy,stanFORD Mobility Project,Meta'.split(',');
 var groups = 'ME,IDEO CoLab,Cinder,StreetSense,Ford Innovation Center,Stanford d.school,Stanford,Stanford Robotics Club,BASES,TEDx,CCRMA'.split(',');
 
 var skillMap = new Map(); // or var map = {};
 skillMap.set("Ethnographic Research", 'stanFORD Mobility Project,Ford Innovation Center,IDEO CoLab,Stanford d.school'.split(','));
 skillMap.set("Storytelling", 'stanFORD Mobility Project,Brand Book,Ford Innovation Center,IDEO CoLab,Stanford d.school,BASES'.split(','));
-skillMap.set("Lathe & Mill", 'MALT,Stanford'.split(','));
+skillMap.set("Lathe & Mill", 'malt,Stanford'.split(','));
 skillMap.set("Lasercutting & 3D Printing", 'Chess.,Piqo Wallets,Lumy,Diskus,IDEO CoLab,Stanford'.split(','));
 skillMap.set("C & C++ & Python", 'Chess.,IDEO CoLab,Stanford'.split(','));
 skillMap.set("HTML5 & CSS3 & JS", 'stanFORD Mobility Project,Ford Innovation Center,IDEO CoLab'.split(','));
@@ -19,7 +19,7 @@ skillMap.set("AI - Tensorflow & K-Means)", 'stanFORD Mobility Project, Ford Inno
 skillMap.set("Team Lead", 'stanFORD Mobility Project,Ford Innovation Center,Stanford Robotics Club'.split(','));
 
 var projectMap = new Map(); // or var map = {};
-projectMap.set("MALT", 'Lathe & Mill,Stanford'.split(','));
+projectMap.set("malt", 'Lathe & Mill,Stanford'.split(','));
 projectMap.set("Chess.", 'Lasercutting & 3D Printing,C & C++ & Python,Stanford'.split(','));
 projectMap.set("Brand Book", 'Storytelling,Sketch,BASES'.split(','));
 projectMap.set("100k Challenge App", 'Sketch,BASES'.split(','));
@@ -30,9 +30,6 @@ projectMap.set("Lumy", 'Lasercutting & 3D Printing,Arduino,Stanford Robotics Clu
 projectMap.set("Diskus", 'Lasercutting & 3D Printing,Ardunio,Stanford'.split(','));
 projectMap.set("stanFORD Mobility Project", 'Ethnographic Research,Storytelling,Ford Innovation Center'.split(','));
 projectMap.set("Meta", 'Unity,ChucK,C & C++ & Python,CCRMA'.split(','));
-
-
-
 
 function fillCols(){
 	colFiller(skills, "col1");
@@ -54,7 +51,7 @@ function colFiller(array, string){
 	}
 }
 
-var currentImageLocation = "";
+var currentId = "";
 
 function mouseOver(){
 
@@ -79,12 +76,12 @@ function mouseOver(){
 	newImage.setAttribute("src", "images/"+this.id+".jpg");
 
 	//take care of first image input
-	if(currentImageLocation == ""){
+	if(currentId == ""){
 		this.parentNode.insertBefore(newImage, this.nextSibling);
-		currentImageLocation = this.id;
+		currentId = this.id;
 	}
 
-	if(currentImageLocation != this.id){
+	if(currentId != this.id){
 		//delete last image
 		var imageToRemove = document.getElementById("createdImage");
 		if(imageToRemove.className != this.id){
@@ -93,7 +90,7 @@ function mouseOver(){
 		}
 		//insert new image
 		this.parentNode.insertBefore(newImage, this.nextSibling);
-		currentImageLocation = this.id;
+		currentId = this.id;
 	}
 	newImage.id = "createdImage";
 	newImage.className = this.id;
@@ -116,7 +113,6 @@ function mouseOut(){
 	    var toChange = document.getElementById(toHighlight[newElementId]);
 	    console.log(toChange);
 	    toChange.style.color = "white"
-		toChange.style.textShadow= "none";
 	}
 	// var imageToRemove = document.getElementById("createdImage");
 	// imageToRemove.parentNode.removeChild(imageToRemove);
