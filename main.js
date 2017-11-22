@@ -22,7 +22,7 @@ var projectMap = new Map(); // or var map = {};
 projectMap.set("malt", 'Lathe & Mill,Stanford'.split(','));
 projectMap.set("Chess.", 'Lasercutting & 3D Printing,C & C++ & Python,Stanford'.split(','));
 projectMap.set("Brand Book", 'Storytelling,Sketch,BASES'.split(','));
-projectMap.set("100k Challenge App", 'Sketch,BASES'.split(','));
+projectMap.set("100k Challenge App", 'Sketc h,BASES'.split(','));
 projectMap.set("Piqo Wallets", 'Lasercutting & 3D Printing,ME'.split(','));
 projectMap.set("Stanford LED Fountain", 'Lasercutting & 3D Printing,Stanford'.split(','));
 projectMap.set("TEDxChurchillHighSchool", 'Storytelling,Team Lead,TEDx'.split(','));
@@ -31,13 +31,11 @@ projectMap.set("Diskus", 'Lasercutting & 3D Printing,Ardunio,Stanford'.split(','
 projectMap.set("stanFORD Mobility Project", 'Ethnographic Research,Storytelling,Ford Innovation Center'.split(','));
 projectMap.set("Meta", 'Unity,ChucK,C & C++ & Python,CCRMA'.split(','));
 
-var projects = 'Stanford Robotics Club,stanFORD Mobility Project,Pear,ENGR245,malt,Piqo Wallets,TEDxChurchillHighSchool,Chess.,Meta,Flatland,Stanford LED Fountain,Lumy,BASES Brand Book,IDEO CoLab,Cinder'.split(',');
-
-
+//var projects = 'Stanford Robotics Club,stanFORD Mobility Project,Pear,Lean Launchpad TA,malt,Piqo Wallets,TEDxChurchillHighSchool,Chess.,Meta,Flatland,Stanford LED Fountain,Lumy,BASES Brand Book,IDEO CoLab,Cinder'.split(',');
 
 var accessPoint = new Map(); // or var map = {};
 accessPoint.set("Leading Teams", 'Stanford Robotics Club,stanFORD Mobility Project'.split(','));
-accessPoint.set("Running Lean", 'Pear,ENGR245'.split(','));
+accessPoint.set("Running Lean", 'Pear,Lean Launchpad TA'.split(','));
 accessPoint.set("Founding Groups", 'TEDxChurchillHighSchool'.split(','));
 accessPoint.set("Building Analog Things", 'malt,Piqo Wallets'.split(','));
 accessPoint.set("Connecting Physical and Digital", 'Chess.,Stanford LED Fountain'.split(','));
@@ -46,9 +44,28 @@ accessPoint.set("Creating Digital Instruments", 'Meta,Flatland'.split(','));
 accessPoint.set("Branding Groups", 'Stanford Robotics Club,BASES Brand Book'.split(','));
 accessPoint.set("Work", 'IDEO CoLab,Cinder'.split(','));
 
+var projects = new Map();
+projects.set("Stanford Robotics Club",'StanfordRoboticsClub.jpg,Co-President 2017-2018'.split(','));
+projects.set("stanFORD Mobility Project",'stanFORDMobilityProject,Team Lead - Ford Innovation Center.jpg'.split(','));
+projects.set("Pear",''.split(','));
+projects.set("Lean Launchpad TA",'LeanLaunchpad.jpg,2018 TA - Design and Curriculum'.split(','));
+projects.set("malt",'Malt.jpg,ME203 Milkshake Machine'.split(','));
+projects.set("Piqo Wallets",'PiqoWallets.jpg,20+ prototypes'.split(','));
+projects.set("TEDxChurchillHighSchool",'TEDxChurchillHighSchool.jpg,Organizer and Curator'.split(','));
+projects.set("Chess.",'Chess..jpg,Digitally Connected Smart Chess Board'.split(','));
+projects.set("Meta",'Meta.jpg,Sound Sequencer of a Meta Text Editor'.split(','));
+projects.set("Flatland",'Flatland.jpg,Sound Visualizer that Explores the Dimensions'.split(','));
+projects.set("Stanford LED Fountain",'StanfordLEDFountain.jpg,7-foot tall Interactive LED Sculpture'.split(','));
+projects.set("Lumy",'Lumy.jpg,All-purpose Light'.split(','));
+projects.set("BASES Brand Book",'BASESBrandBook.jpg'.split(','));
+projects.set("IDEO CoLab",'IDEOCoLab.jpg,Venture Design Fellow'.split(','));
+projects.set("Cinder",''.split(','));
+
+
+
 function fillCols(){
 	colFiller(Array.from( accessPoint.keys() ), "col1");
-	colFiller(projects, "col2");
+	colFiller(Array.from( projects.keys() ), "col2");
 	// colFiller(groups, "col3");
 }
 
@@ -115,24 +132,35 @@ function mouseOut(){
 
 function onClick(){
 	var bothIds = accessPoint.get(this.id);
-
+	console.log(bothIds);
 	//change images
 	if(bothIds[0] != undefined){
-		var newImage1 = document.getElementById('image-1');
-		newImage1.setAttribute("src", "images/"+bothIds[0]+".jpg");
-		document.getElementById('title-1').innerHTML = bothIds[0];
+		var newImage1 = document.getElementById('card2');
+		var image1 = "url(images/"+projects.get(bothIds[0])[0]+")";
+			console.log(image1);
+
+		newImage1.style.backgroundImage = image1;
+		document.getElementById('card1-text').innerHTML = bothIds[0];
+		document.getElementById('card1-subtext').innerHTML = projects.get(bothIds[0])[1];
 
 	}
 	if(bothIds[1] != undefined){
-		var newImage2 = document.getElementById('image-2');
-		newImage2.setAttribute("src", "images/"+bothIds[1]+".jpg");
-		document.getElementById('title-2').innerHTML = bothIds[1];
+		var newImage2 = document.getElementById('card4');
+		var image2 = "url(images/"+projects.get(bothIds[1])[0]+")";
+		newImage2.style.backgroundImage = image2;		
+		document.getElementById('card3-text').innerHTML = bothIds[1];
+		document.getElementById('card3-subtext').innerHTML = projects.get(bothIds[1])[1];
+
 	}
 	else{
-		var newImage2 = document.getElementById('image-2');
-		newImage2.setAttribute("src", "");
-		document.getElementById('title-2').innerHTML = "";
+		var newImage2 = document.getElementById('card4');
+		newImage2.style.backgroundImage = "";	
 	}
+
+	//remove headshot
+	var newImage3 = document.getElementById('card1');
+
+	newImage3.style.backgroundImage = "none";	
 
 }
 
