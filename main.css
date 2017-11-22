@@ -1,6 +1,6 @@
 body{
 	font-family: helvetica;
-	background-color: #EFEFEF;
+	background-color: #E1E1E1;
 	font-family: 'VT323', monospace;
 	font-family: 'Space Mono', monospace;
 }
@@ -32,7 +32,7 @@ h1{
 /*	 #F5F5F5
 */}
 
-#col2 p:hover{
+#col1 p:hover{
 	cursor: pointer;
 
 }
@@ -52,10 +52,10 @@ h1{
 }
 
 
-#col2{
+#col1{
 	border-style: solid;
-	animation: colors 7s ease-in-out infinite;
-}
+/*	animation: colors 7s ease-in-out infinite;
+*/}
 
 @keyframes colors {
     0% {border-color: black;}  
@@ -75,9 +75,8 @@ h1{
     border: solid 2px black;
 }
 
-img {
-/*    width:75%;
-*/  opacity: 0;
+/*img {
+ opacity: 0;
 	transition: ease 1s;
 
  }
@@ -87,14 +86,29 @@ img#createdImage {
     opacity: 1;
     width:250px;
 
-/*    width: 75%;
-*/ }
-/* -fail- */
+}
+
 @-webkit-keyframes fade {
     from {width: 0px}
     to {width: 250px}
 }@keyframes fade {
     from {width: 0px}
     to {width: 250px}
+}*/
+
+.card{
+    height: 320px;
+    background-color: white;
+    margin-top: 30px;
+}
+
+h3{
+    padding-top: 10px;
+}
+
+.card-image{
+    opacity: 1;
+    height: 75%;
+    margin-bottom: 10px;
 }
 
