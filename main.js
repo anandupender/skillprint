@@ -93,7 +93,7 @@ function mouseOver(){
 }
 
 function mouseOut(){
-	this.style.color = "white";
+	this.style.color = "#BBBBBB";
 	this.style.textShadow= "none";
 
 	if(this.parentElement.id == "col1"){
@@ -107,7 +107,7 @@ function mouseOut(){
 		console.log(toHighlight[newElementId]);
 	    var toChange = document.getElementById(toHighlight[newElementId]);
 	    console.log(toChange);
-	    toChange.style.color = "white"
+	    toChange.style.color = "#BBBBBB"
 	}
 	// var imageToRemove = document.getElementById("createdImage");
 	// imageToRemove.parentNode.removeChild(imageToRemove);

@@ -1,6 +1,6 @@
 body{
 	font-family: helvetica;
-	background-color: #E1E1E1;
+	background-color: #EEEEEE;
 	font-family: 'VT323', monospace;
 	font-family: 'Space Mono', monospace;
 }
@@ -27,7 +27,7 @@ h1{
 .column p{
 	 vertical-align: middle;
 	 font-size: 18px;
-	 color:white;
+	 color:#BBBBBB;
 	 transition: ease 1s;
 /*	 #F5F5F5
 */}
@@ -98,17 +98,19 @@ img#createdImage {
 
 .card{
     height: 320px;
-    background-color: white;
+    background-color: #F2F2F2;
     margin-top: 30px;
+    border: 2px black solid; 
 }
 
 h3{
-    padding-top: 10px;
+    padding: 10px;
+    padding-bottom: 0px;
 }
 
 .card-image{
     opacity: 1;
-    height: 75%;
+    height: 65%;
     margin-bottom: 10px;
 }
 
