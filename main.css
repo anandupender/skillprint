@@ -1,18 +1,22 @@
 body{
 	font-family: helvetica;
-	background-color: #EFEFEF;
+	background-color: #EEEEEE;
 	font-family: 'VT323', monospace;
 	font-family: 'Space Mono', monospace;
 }
 
+h1{
+    font-family: 'Rock Salt', cursive;
+    font-size: 42px;
+}
+
 #header{
-	margin: 50px;
+	margin: 30px;
 	text-align: center;
 }
 
 .column {
     float: left;
-    width: 27%;
     margin: 3%;
     margin-top:0px; 
     margin-bottom: 5px;
@@ -22,15 +26,15 @@ body{
 .column p{
 	 vertical-align: middle;
 	 font-size: 18px;
-	 color:white;
+	 color:#BBBBBB;
 	 transition: ease 1s;
 /*	 #F5F5F5
 */}
 
-#col2 p:hover{
+#col1 p:hover{
 	cursor: pointer;
-
 }
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -47,22 +51,26 @@ body{
 }
 
 
-#col2{
+#col1{
 	border-style: solid;
-	animation: colors 7s ease-in-out infinite;
+    border-radius: 10px;
+    box-shadow: -3px 3px black;    
+    width: 20%;
 }
 
-@keyframes colors {
-    0% {border-color: black;}  
-    50% {border-color: white;}  
-    100% {border-color: black;}  
-
+#col2{
+    width:20%; 
 }
+
+#col3{
+    width:40%;
+}
+
 
 #imageContainer{
     position: fixed;
     bottom: 5px;
-    right: 5px;
+    right: 10px;
 }
 
 
@@ -70,26 +78,71 @@ body{
     border: solid 2px black;
 }
 
-img {
-/*    width:75%;
-*/  opacity: 0;
+/*img {
+ opacity: 0;
 	transition: ease 1s;
 
  }
 img#createdImage {
-    -webkit-animation: fade 2s;
-    animation: fade 2s;
+    -webkit-animation: fade 1s;
+    animation: fade 1s;
     opacity: 1;
     width:250px;
 
-/*    width: 75%;
-*/ }
-/* -fail- */
+}
+
 @-webkit-keyframes fade {
     from {width: 0px}
     to {width: 250px}
 }@keyframes fade {
     from {width: 0px}
     to {width: 250px}
+}*/
+.card-row{
+    float:left;
+    display:inline-block;
+    width:44%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.card{
+    height: 300px;
+    background-color: #FFFFFF;
+    border: 3px black solid; 
+    border-radius: 10px;
+    box-shadow: 3px 3px black;   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h3{
+    padding-top: 15px;
+    margin: 0px;
+}
+
+.card p{
+    padding: 5px;
+    font-size: 14px;
+}
+
+img{
+/*    opacity: 1;
+    width: 100%;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;*/
+/*        width:100%;
+    height:auto;
+    max-height:100%;
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 62%);
+clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 62%);*/
+}
+
+#card1 {
+    background-image: url("images/Headshot.jpg");
+}
+#card2 {
 }
 
